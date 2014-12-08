@@ -14,7 +14,7 @@ package: $(PACKAGE_DIR)
 $(PACKAGE_DIR):
 	mkdir -p $@
 	cp -r ../$(PACKAGE_SHORTNAME)/* $@
-	sed -re "s/VERSION/$(VERSION)/" $@/$(PACKAGE_SHORTNAME)-package-template.el > $@/$(PACKAGE_SHORTNAME)-pkg.el
+	gsed -re "s/VERSION/$(VERSION)/" $@/$(PACKAGE_SHORTNAME)-package-template.el > $@/$(PACKAGE_SHORTNAME)-pkg.el
 
 test:
 	+ $(EMACS) -l csharp-mode-tests.el -f ert-run-tests-batch-and-exit
